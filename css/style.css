@@ -1,0 +1,65 @@
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: lightgrey;
+    height: 5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.header_title {
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+#board {
+    background-color: lightskyblue;
+    padding: 15px;
+    width: 800px;
+    height: 468px;
+    margin: 0 auto;
+}
+
+.card {
+    margin: 4px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.hidden {
+    background-color: grey;
+}
+
+.hidden:hover {
+    background-color: rgb(163, 163, 163);
+}
+
+.visible {
+    background-image: url('../images/cards.png');
+}
+
+.play {
+    width: 6rem;
+    margin: 3rem auto;
+    padding: 0.3rem;
+    background-color: rgb(241, 241, 241);
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    text-align: center;
+}
+.play:hover {
+    color: white;
+    background-color: rgb(155, 154, 154);
+    border: 1px solid rgb(88, 88, 88);
+}
+
+.time {
+    margin: 2rem auto;
+    height: 50px;
+    background-color: red;
+}

@@ -1,3 +1,5 @@
+// TODO : Transformer les propriétés $clickedCardOne et $clickedCardTwo en array clicked = [one=> '',two => ''] et dans showPicture, entrer dans les condition si !empty(clicked[one]) !empty(clicked[two]) (en prenant en compte le dataset numbers)
+
 var app = {
   wrapper: document.querySelector('.wrapper'),
   board: document.getElementById('board'),
@@ -29,7 +31,7 @@ var app = {
     app.time.style.width = '1000px';
     app.wrapper.appendChild(app.time);
     // début du chrono
-    app.startTimer = setInterval(app.chrono, 60);
+    app.startTimer = setInterval(app.chrono, 120);
 
     // je créer les cartes
     app.createCard();
@@ -122,23 +124,16 @@ var app = {
         }
         // sinon elles sont identiques
         else {
-          app.click = 0;
-          app.$clickedCardOne.removeEventListener('click', app.showPicture, false);
-          app.$clickedCardOne = null;
-          app.$clickedCardTwo.removeEventListener('click', app.showPicture, false);
-          app.$clickedCardTwo = '';
+          window.setTimeout(app.isFind, 500);
           app.win++;
+          console.log(app.win);
           // si elles on été identiques 14 fois alors toutes les paires on été trouvé
           if (app.win >= 14) {
             clearInterval(app.startTimer);
-            alert('Félicitation ! Vous avez trouvé toutes les paires');
+            window.setTimeout(function() {
+              alert('Félicitation ! Vous avez trouvé toutes les paires');
+            }, 1000);
             app.reset();
-            // création d'un bouton rejouer
-            // var $button = document.createElement('div');
-            // $button.className = 'play';
-            // $button.innerHTML = 'Rejouer';
-            // $button.addEventListener('click', app.reset);
-            // app.wrapper.appendChild($button);
           }
         }
       }
@@ -146,6 +141,18 @@ var app = {
       else {
         app.click--;
       }
+    }
+  },
+
+  isFind: function() {
+    app.click = 0;
+    if (app.$clickedCardOne != null && app.$clickedCardTwo != null) {
+      app.$clickedCardOne.classList.replace('visible', 'find');
+      app.$clickedCardOne.removeEventListener('click', app.showPicture, false);
+      app.$clickedCardOne = null;
+      app.$clickedCardTwo.classList.replace('visible', 'find');
+      app.$clickedCardTwo.removeEventListener('click', app.showPicture, false);
+      app.$clickedCardTwo = null;
     }
   },
 

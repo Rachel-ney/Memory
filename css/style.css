@@ -4,10 +4,15 @@
 }
 
 .header {
-    background-color: lightgrey;
-    height: 5rem;
+
     margin-bottom: 1.5rem;
-    color: white;
+
+}
+
+.header_text {
+    color: black;
+    text-align: center;
+    padding: 1rem 1rem;
 }
 
 .header_title {
@@ -17,7 +22,7 @@
 }
 
 #board {
-    background-color: lightskyblue;
+   
     padding: 15px;
     width: 800px;
     height: 468px;
@@ -32,34 +37,42 @@
 }
 
 .hidden {
-    background-color: grey;
+    background-color: #00FFC1;
+    border: 1px solid #00B287;
+    border-radius: 3px;
+    box-shadow: 0 0 3px lightgrey;
 }
 
 .hidden:hover {
-    background-color: rgb(163, 163, 163);
+    background-color: #00B287;
+    box-shadow: 4px 4px 3px lightgrey;
 }
 
 .visible {
     background-image: url('../images/cards.png');
 }
 
+.find {
+    background-color: white;
+}
+
 .play {
     width: 6rem;
     margin: 3rem auto;
     padding: 0.3rem;
-    background-color: rgb(241, 241, 241);
-    border: 1px solid lightgrey;
+    background-color: #69FFE6;
+    border: 1px solid #26B29B;
     border-radius: 3px;
     text-align: center;
+    font-weight: bold;
 }
 .play:hover {
     color: white;
-    background-color: rgb(155, 154, 154);
-    border: 1px solid rgb(88, 88, 88);
+    background-color: #26B29B;
 }
 
 .time {
     margin: 2rem auto;
     height: 50px;
-    background-color: red;
+    background-color: #FF3E00;
 }

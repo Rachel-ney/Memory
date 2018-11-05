@@ -2,10 +2,13 @@
 
 var app = {
   wrapper: document.querySelector('.wrapper'),
-  board: document.getElementById('board'),
+  board: document.querySelector('.board'),
+  title: document.createElement('h1'),
+  rules: document.createElement('p'),
+  blocTime: document.querySelector('.bloc-time'),
   time: document.createElement('div'),
   startTimer: null,
-  position: 1000,
+  position: 750,
   $allCards: [],
   $clickedCardOne: null,
   $clickedCardTwo: null,
@@ -13,7 +16,10 @@ var app = {
   win: 0,
 
   init: function() {
-    // app.createCard();
+    // Affichage du titre + règles sur le board
+    app.presentation();
+
+    // Boutton jouer
     var $button = document.createElement('div');
     $button.className = 'play';
     $button.innerHTML = 'Jouer';
@@ -21,17 +27,25 @@ var app = {
     app.wrapper.appendChild($button);
   },
 
+  presentation: function() {
+    app.board.classList.add('rules');
+    app.title.className = 'title';
+    app.title.innerHTML = 'Le Memory de l\'espace';
+    app.board.appendChild(app.title);
+    app.rules.className = 'text';
+    app.rules.innerHTML = 'Règles :<br/> Cliquez sur deux cartes pour les retourner. <br/> Si elles sont différentes vous avez 1 seconde pour les mémoriser.<br/> Si elles sont identiques, elles sont retiré du jeu. <br/><br/> Attention !<br/> Vous avez une minute pour retrouver les 14 paires de cartes mélangées sur le plateau.<br/> La barre bleu symbolise le temps qu\'il vous reste... <br/><br/> Appuyez sur Jouer pour lancer la partie.';
+    app.board.appendChild(app.rules);
+  },
+
   launchGame: function(evt) {
-    // suppression du bouton jouer
-    var cible = evt.target;
-    app.wrapper.removeChild(cible);
+    // Nettoyage du plateau (supression boutton jouer + titre + règle)
+    app.cleanBoard(evt.target);
 
     // préparation du timer
     app.time.className = 'time';
-    app.time.style.width = '1000px';
-    app.wrapper.appendChild(app.time);
+    app.blocTime.appendChild(app.time);
     // début du chrono
-    app.startTimer = setInterval(app.chrono, 120);
+    app.startTimer = setInterval(app.chrono, 100);
 
     // je créer les cartes
     app.createCard();
@@ -41,6 +55,13 @@ var app = {
     app.shuffle(app.$allCards);
     // puis j'ajoute chaque éléments de mon tableau dans le board
     app.placeOnBoard();
+  },
+
+  cleanBoard: function(buttonPlay) {
+    app.wrapper.removeChild(buttonPlay);
+    app.board.classList.remove('rules');
+    app.board.removeChild(app.title);
+    app.board.removeChild(app.rules);
   },
 
   chrono: function() {
@@ -179,7 +200,7 @@ var app = {
     app.win = 0;
 
     // supression du chrono
-    app.wrapper.removeChild(app.time);
+    app.blocTime.removeChild(app.time);
 
     // suppression de toutes les cartes
     for (var index in app.$allCards) {

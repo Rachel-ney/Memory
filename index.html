@@ -3,25 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
     <title>Memory</title>
 </head>
 
 <body>
     <div class="wrapper">
-        <header class="header">
-            <h1 class="header_title">Memory</h1>
-            <p class="header_text">
-                Vous avez deux minutes pour retrouver les 14 paires de cartes mélangés sur le plateau. <br/> <br/>
-                Cliquez sur une carte pour la retourner, lorsque vous aurez retourné une deuxième carte,<br/>
-                si elles ne sont pas identiques vous aurez 1 seconde pour les mémoriser.<br/>
-                Si la deuxième carte est identique à la première, elles sont alors retiré du jeu.
-            </p>
-        </header>
-        <div id="board">
+        <div class="board">
             
         </div>
+        <div class="bloc-time"></div>
     </div>
     <script src="./js/memory.js"></script>
 </body>

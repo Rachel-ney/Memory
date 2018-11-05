@@ -1,32 +1,40 @@
+body {
+    background-image: url('../images/bkg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .wrapper {
     width: 80%;
     margin: 0 auto;
 }
 
-.header {
-
-    margin-bottom: 1.5rem;
-
-}
-
-.header_text {
-    color: black;
-    text-align: center;
-    padding: 1rem 1rem;
-}
-
-.header_title {
+.title {
+    font-family: 'Neucha', Arial, Helvetica, sans-serif;
     font-size: 3rem;
     text-align: center;
     padding-top: 0.5rem;
 }
 
-#board {
-   
-    padding: 15px;
+.text {
+    color: black;
+    text-align: center;
+    padding: 1rem 1rem;
+    font-family: 'Neucha', Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
+
+.board {
+    padding-top: 1rem;
     width: 800px;
-    height: 468px;
+    height: 500px;
     margin: 0 auto;
+    margin-top: 15rem;
+}
+
+.rules 
+{
+    background-color: white;
+    box-shadow: 1px 1px 6px black;
 }
 
 .card {
@@ -37,42 +45,54 @@
 }
 
 .hidden {
-    background-color: #00FFC1;
-    border: 1px solid #00B287;
+    background-image: url('../images/card-bkg.jpg');
+    background-size: contain;
+    border: 3px solid #049ede;
     border-radius: 3px;
-    box-shadow: 0 0 3px lightgrey;
+    box-shadow: 2px 2px 5px black;
 }
 
 .hidden:hover {
-    background-color: #00B287;
-    box-shadow: 4px 4px 3px lightgrey;
+    box-shadow: 4px 4px 15px black;
 }
 
 .visible {
     background-image: url('../images/cards.png');
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px black;
 }
 
 .find {
-    background-color: white;
+    background: none;
 }
 
 .play {
+    font-family: 'Neucha', Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
     width: 6rem;
-    margin: 3rem auto;
-    padding: 0.3rem;
-    background-color: #69FFE6;
-    border: 1px solid #26B29B;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding-top: 0.3rem;
+    background-color: #049ede;
+    border: 1px solid #0389c2;
     border-radius: 3px;
+    box-shadow: 2px 2px 5px black;
     text-align: center;
     font-weight: bold;
 }
 .play:hover {
     color: white;
-    background-color: #26B29B;
+    background-color: #0389c2;
 }
 
+.bloc-time {
+    position: relative;
+    margin : 1rem auto;
+    width: 800px;
+}
 .time {
-    margin: 2rem auto;
+    position: absolute;
+    left: 0px;
     height: 50px;
-    background-color: #FF3E00;
+    background-color: #049ede;
 }
